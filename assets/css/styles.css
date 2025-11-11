@@ -78,8 +78,17 @@ body {
 }
 
 body {
-  background-color: var(--body-color);
+  background: linear-gradient(135deg, #fffbe7, #fdf3d0, #fff8e7);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
 }
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 h1,
 h2,
@@ -188,10 +197,11 @@ table {
 
 /*=============== HEADER & NAV ===============*/
 .header__top {
-  background-color: var(--first-color-alt);
-  border-bottom: 1px solid var(--first-color);
+  background: linear-gradient(to right, #d0fbfd, #e4f6f5);
+  border-bottom: 1px solid #d6e4e8;
   padding-block: 0.875rem;
 }
+
 
 .header__container {
   display: flex;
@@ -233,7 +243,7 @@ table {
 }
 
 .nav__logo-img {
-  width: 120px;
+  width: 180px;
 }
 
 .nav__menu {
@@ -264,6 +274,31 @@ table {
 .header__search .form__input {
   width: 100%;
 }
+
+/* === Cream Gradient Search Bar === */
+.header__search .form__input {
+  background: linear-gradient(to right, #fffbe7, #fdf3d0); /* light cream gradient */
+  border: 1px solid #e0d7b8;
+  color: #333;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* Placeholder text color */
+.header__search .form__input::placeholder {
+  color: #7d7562;
+  opacity: 0.9;
+}
+
+/* Focus (when user clicks inside the box) */
+.header__search .form__input:focus {
+  border-color: #8ac5c3;
+  box-shadow: 0 0 6px rgba(197, 179, 138, 0.4);
+  background: linear-gradient(to right, #fdf3d0, #e7feff);
+}
+
 
 .search__btn {
   position: absolute;
@@ -348,6 +383,8 @@ table {
 
 .home__img {
   justify-self: flex-end;
+  width: 65%;   /* 👈 reduce the image size */
+  height: auto; /* keeps correct proportions */
 }
 
 /*=============== BUTTONS ===============*/
