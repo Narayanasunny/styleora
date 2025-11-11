@@ -1037,13 +1037,28 @@ table {
   margin-top: 1.875rem;
 }
 
+/* ✅ Corrected class name for flex container */
 .footer__social-links {
-  column-gap: 0.25rem;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* ensure links always clickable */
+.footer__social a {
+  position: relative;
+  z-index: 10;
 }
 
 .footer__social-icon {
-  width: 20px;
+  width: 22px;
   opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.footer__social-icon:hover {
+  opacity: 1;
 }
 
 .footer__title {
@@ -1057,10 +1072,6 @@ table {
   margin-bottom: 1rem;
   display: block;
   transition: all 0.3s var(--transition);
-  -webkit-transition: all 0.3s var(--transition);
-  -moz-transition: all 0.3s var(--transition);
-  -ms-transition: all 0.3s var(--transition);
-  -o-transition: all 0.3s var(--transition);
 }
 
 .footer__link:hover {
