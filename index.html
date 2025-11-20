@@ -31,8 +31,136 @@
   gtag('config', 'G-LTHR9HZWWX');
 </script>
 
+<style>
+  .social-bar {
+      position: fixed;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 99999;
+  }
+
+  .social-bar a {
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+      transition: 0.3s ease;
+  }
+
+  .social-bar a:hover {
+      transform: scale(1.12);
+  }
+
+  .social-bar img {
+      width: 25px;
+      height: 25px;
+  }
+
+  /* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+/* Popup Box */
+.modal-content {
+  background: white;
+  width: 350px;
+  padding: 25px;
+  border-radius: 12px;
+  margin: 10% auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Close Button */
+.closeBtn {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Inputs */
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Send Button */
+.send-btn {
+  width: 100%;
+  padding: 10px;
+  background: #ff4f4f;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.send-btn:hover {
+  background: #e03e3e;
+}
+
+</style>
+
+
   </head>
   <body>
+
+    <!-- SOCIAL MEDIA BAR -->
+    <div class="social-bar">
+    <!-- Instagram -->
+      <a href="https://www.instagram.com/_.narayana._2.o/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg">
+      </a>
+
+    <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg">
+      </a>
+
+    <!-- GitHub -->
+      <a href="https://github.com/Narayanasunny" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg">
+      </a>
+
+    <!-- Gmail -->
+    <!-- Gmail Icon (Opens Popup) -->
+      <a id="openGmailModal" class="gmail-icon">
+        <img src="https://www.gstatic.com/images/branding/product/1x/gmail_48dp.png" 
+         alt="Gmail" 
+         style="width:30px; cursor:pointer;">
+      </a>
+
+  </div>
+
     <!--=============== HEADER ===============-->
     <header class="header">
       <div class="header__top">
@@ -2280,30 +2408,40 @@
       </section>
 
       <!--=============== NEWSLETTER ===============-->
-      <section class="newsletter section home__newsletter">
-        <div class="newsletter__container container grid">
-          <h3 class="newsletter__title flex">
-            <img
-              src="./assets/img/icon-email.svg"
-              alt=""
-              class="newsletter__icon"
-            />
-            Sign in to Newsletter
-          </h3>
-          <p class="newsletter__description">
-            ...and receive ₹25 coupon for first shopping.
-          </p>
-          <form action="" class="newsletter__form">
-            <input
-              type="text"
-              placeholder="Enter Your Email"
-              class="newsletter__input"
-            />
-            <button type="submit" class="newsletter__btn">Subscribe</button>
-          </form>
-        </div>
-      </section>
-    </main>
+<section class="newsletter section home__newsletter">
+  <div class="newsletter__container container grid">
+    <h3 class="newsletter__title flex">
+      <img src="./assets/img/icon-email.svg" alt="" class="newsletter__icon" />
+      Sign in to Newsletter
+    </h3>
+
+    <p class="newsletter__description">
+      ...and receive ₹25 coupon for first shopping.
+    </p>
+
+    <!-- ⭐ WORKING EMAIL SUBMISSION FORM (NO BACKEND NEEDED) ⭐ -->
+    <form action="https://api.web3forms.com/submit" method="POST" class="newsletter__form">
+
+      <!-- REQUIRED SECRET KEY -->
+      <input type="hidden" name="access_key" value="d1a0a1ce-e81c-4b6b-9c7f-20f0cb4d418a">
+
+      <!-- EMAIL WHERE YOU WILL RECEIVE NEWSLETTER -->
+      <input type="hidden" name="recipient" value="shivakotinarayanakumar@gmial.com">
+
+      <!-- USER EMAIL INPUT -->
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Enter Your Email" 
+        class="newsletter__input" 
+        required
+      />
+
+      <button type="submit" class="newsletter__btn">Subscribe</button>
+    </form>
+  </div>
+</section>
+
 
     <!--=============== FOOTER ===============-->
 <footer class="footer container">
@@ -2324,9 +2462,16 @@
         <span>Hours:</span> 10:00 - 18:00, Mon - Sat
       </p>
 
+      <!-- ✅ Email Added -->
+      <p class="footer__description">
+  <span>Email:</span>
+  <a href="shivakotinarayanakumar@gmial.com" class="footer__link">yourmail@example.com</a>
+</p>
+
+
       <div class="footer__social">
         <h4 class="footer__subtitle">Follow Me</h4>
-        <!-- ✅ fixed class name -->
+
         <div class="footer__social-links flex">
           <!-- Twitter / X -->
           <a
@@ -2409,6 +2554,58 @@
     <span class="designer">Designed by Crypticalcoder</span>
   </div>
 </footer>
+
+<!-- ================= POPUP CONTACT FORM ================= -->
+<div id="gmailModal" class="modal">
+  <div class="modal-content">
+    <span class="closeBtn">&times;</span>
+
+    <h2>Contact Me</h2>
+
+    <form action="https://api.web3forms.com/submit" method="POST">
+
+  <!-- 🔑 Your working access key -->
+  <input type="hidden" name="access_key" value="f7fe8aa0-b6cf-46be-a692-92521316210c">
+
+  <!-- OPTIONAL: Email where you want to receive messages -->
+  <input type="hidden" name="recipient" value="shivakotinarayanakumar@gmail.com">
+
+  <label>Your Name</label>
+  <input type="text" name="name" required>
+
+  <label>Your Email</label>
+  <input type="email" name="email" required>
+
+  <label>Your Message</label>
+  <textarea name="message" rows="4" required></textarea>
+
+  <button type="submit" class="send-btn">Send Message</button>
+</form>
+
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("gmailModal");
+  const openBtn = document.getElementById("openGmailModal");
+  const closeBtn = document.querySelector(".closeBtn");
+
+  openBtn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+
 
 
     <!--=============== SWIPER JS ===============-->
